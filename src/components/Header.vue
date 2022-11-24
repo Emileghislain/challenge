@@ -66,54 +66,89 @@
         <span>Unlimited access to 100+ instructors.</span>
       </div>
       <ul class="second__section">
-        <li class="second__section__1">All categories</li>
-        <li class="second__section__2">Entertainment</li>
-        <li class="second__section__3">Lifestyle</li>
-        <li class="second__section__4">Writing</li>
-        <li class="second__section__5">Business</li>
-        <li class="second__section__6">Food</li>
+        <li class="second__section__1">
+          All categories
+        </li>
+        <li class="second__section__2">Entertainment
+          <span></span>
+        </li>
+        <li class="second__section__3">Lifestyle<span></span></li>
+        <li class="second__section__4">Writing<span></span></li>
+        <li class="second__section__5">Business<span></span></li>
+        <li class="second__section__6">Food<span></span></li>
       </ul>
       
     </div>
     <div class="card">
       <div class="card__1">
-        <div class="image" style="background-image: url('/images/pexels-lina-kivaka-1661575.jpg')"></div>
+        <div class="image" style="background-image: url('/images/pexels-lina-kivaka-1661575.jpg')">
+          <span class="span__circle"></span>
+        </div>
         <div class="text"> 
           <span class="text__1">Sales Marketing</span>
           <span class="text__2">4 month</span>
         </div>
       </div>
       <div class="card__2">
-        <div class="image" style="background-image: url('/images/pexels-lina-kivaka-1661575.jpg')"></div>
+        <div class="image" id="image" style="background-image: url('/images/pexels-lina-kivaka-1661575.jpg')">
+          <span class="span__circle"></span>
+        </div>
         <div class="text"> 
           <span class="text__1">Sales Marketing</span>
           <span class="text__2">4 month</span>
         </div>
       </div>
       <div class="card__3">
-        <div class="image" style="background-image: url('/images/pexels-lina-kivaka-1661575.jpg')"></div>
+        <div class="image" style="background-image: url('/images/pexels-lina-kivaka-1661575.jpg')">
+          <span class="span__circle"></span>
+        </div>
         <div class="text"> 
           <span class="text__1">Sales Marketing</span>
           <span class="text__2">4 month</span>
         </div>
       </div>
       <div class="card__4">
-        <div class="image" style="background-image: url('/images/pexels-lina-kivaka-1661575.jpg')"></div>
+        <div class="image" style="background-image: url('/images/pexels-lina-kivaka-1661575.jpg')">
+          <span class="span__circle"></span>
+        </div>
         <div class="text"> 
           <span class="text__1">Sales Marketing</span>
           <span class="text__2">4 month</span>
         </div>
       </div>
     </div>
+    <img src="/images/pexels-lina-kivaka-1661575.jpg"/>
 </template>
 
 <script>
 export default {
   name: 'MyHeader',
-  props: {
-    msg: String
-  }
+  data(){
+    return{
+      prevRat : 0
+    }
+  },
+
+  mounted() {
+    let observer = new IntersectionObserver((entries)=>{
+      entries.forEach((entry)=>{
+        console.log(entry)
+        if(this.prevRat < entry.intersectionRatio){
+          console.log('prevRat < entry.intersectionRatio')
+        }else{
+          console.log('prevRat > entry.intersectionRatio')
+        }
+        console.log('prevRat ', this.prevRat)
+        console.log('entry.intersectionRatio', entry.intersectionRatio)
+        this.prevRat = entry.intersectionRatio
+      })
+    });
+    const elemnts = document.getElementById('image');
+    observer.observe(elemnts);
+  },
+
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

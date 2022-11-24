@@ -227,18 +227,37 @@
         justify-content: center;
         list-style-type: none;
         font-size: 1.1rem;
+        color: rgba(0, 0, 0, 0.6);
+        font-weight: 300;
         gap: 2rem;
 
         li:first-child{
             padding-bottom: 1px;
-            border-bottom: 3px solid;
+            border-bottom: 3px solid black;
         }
-        li:hover{
-            &:first-child{
-                border-bottom: none;
+        li{
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            span{
+                display: none;
+                height: 3px;
+                background-color: rgba(128, 128, 128, .3);
+                overflow: hidden;
+                animation: underlineco 700ms ease-in-out;
+                animation-fill-mode: forwards;
             }
-            padding-bottom: 1px;
-            border-bottom: 3px solid;
+            &:hover{
+                span{
+                    display: block;
+                }
+            }
+        }
+
+
+        @keyframes underlineco {
+            from{transform: translateY(200%);}
+            to{transform: translateY(80%);}
         }
     }
 }
@@ -247,7 +266,7 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     height: 100%;
-    margin-top: 3rem;
+    margin-top: 10rem;
     gap: 2rem;
     cursor: pointer;
 
@@ -260,9 +279,35 @@
             background-position: center center;
             border-radius: 2rem;
             height: 18rem;
-            animation: fade-left 1s ease-in;
-            overflow: hidden;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            /* animation: fade-left 1s ease-in;
+            overflow: hidden; */
+
+            .span__circle{
+                display: none;
+                margin-right: 1.5rem;
+                border: 1.5rem solid black;
+                background-color: black;
+                
+                border-radius: 50%;
+                animation: appear_bule 500ms ease;
+                animation-fill-mode: both;
+
+                @keyframes appear_bule {
+                    from{transform: translateY(0%);}
+                    to{transform: translateY(50%);}
+                }
+            }
+
+            &:hover{
+                .span__circle{
+                    display: block;
+                }
+            }
         }
+        
         .text{
             display: flex;
             flex-direction: column;
@@ -274,6 +319,7 @@
                 font-weight: 300;
                 animation: fade-left 1s ease-in;
                 overflow: hidden;
+                
             }
             &__2{
                 font-size: 1rem;
@@ -294,13 +340,50 @@
 
     &__2{
         grid-column: 3/4;
+
         .image{
+            display: flex;
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
             border-radius: 2rem;
-            aspect-ratio: 1;
             height: 18rem;
+            align-items: flex-start;
+            justify-content: flex-end;
+            animation: image__aimate__1 1s ease-in;
+            animation-fill-mode: forwards;
+            overflow: hidden;
+
+            @keyframes image__aimate__1 {
+                from{
+                    transform: translateY(100%);
+                    height: 18rem;}
+                to{
+                    transform: translateY(0%);
+                    height: 21rem;}
+            }
+
+            .span__circle{
+                opacity: 0;
+                margin-right: 1.5rem;
+                border: 1.5rem solid black;
+                background-color: black;
+                
+                border-radius: 50%;
+                animation: appear_bule 500ms ease;
+                animation-fill-mode: both;
+
+                @keyframes appear_bule {
+                    from{transform: translateY(0%);}
+                    to{transform: translateY(50%);}
+                }
+            }
+
+            &:hover{
+                .span__circle{
+                    opacity: 1;
+                }
+            }
         }
 
         .text{
@@ -327,8 +410,39 @@
             background-repeat: no-repeat;
             background-position: center center;
             border-radius: 2rem;
-            aspect-ratio: 1;
             height: 18rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            animation: image__aimate__2 1s ease-in;
+            animation-fill-mode: forwards;
+
+            @keyframes image__aimate__2 {
+                from{height: 18rem;}
+                to{height: 25rem;}
+            }
+
+            .span__circle{
+                display: none;
+                margin-right: 1.5rem;
+                border: 1.5rem solid black;
+                background-color: black;
+                
+                border-radius: 50%;
+                animation: appear_bule 500ms ease;
+                animation-fill-mode: both;
+
+                @keyframes appear_bule {
+                    from{transform: translateY(0%);}
+                    to{transform: translateY(50%);}
+                }
+            }
+
+            &:hover{
+                .span__circle{
+                    display: block;
+                }
+            }
         }
 
         .text{
@@ -352,10 +466,37 @@
         .image{
             background-size: cover;
             background-repeat: no-repeat;
+            aspect-ratio: 1;
             background-position: center center;
             border-radius: 2rem;
-            aspect-ratio: 1;
             height: 18rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            /* animation: fade-left 1s ease-in;
+            overflow: hidden; */
+
+            .span__circle{
+                display: none;
+                margin-right: 1.5rem;
+                border: 1.5rem solid black;
+                background-color: black;
+                
+                border-radius: 50%;
+                animation: appear_bule 500ms ease;
+                animation-fill-mode: both;
+
+                @keyframes appear_bule {
+                    from{transform: translateY(0%);}
+                    to{transform: translateY(50%);}
+                }
+            }
+
+            &:hover{
+                .span__circle{
+                    display: block;
+                }
+            }
         }
 
         .text{
